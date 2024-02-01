@@ -4,7 +4,7 @@ from PIL import Image
 import io
 
 app = func.FunctionApp()
-
+#Bindings in declarative code(V2)
 @app.blob_trigger(arg_name="myblob", path="image-container/{name}", connection="AzureWebJobsStorage")
 @app.blob_output(arg_name="outputblob",path="resized-images/{name}",connection="AzureWebJobsStorage")
 def ImageProcessor(myblob: func.InputStream, outputblob: func.Out[func.InputStream]) -> None:
